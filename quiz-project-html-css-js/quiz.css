@@ -1,0 +1,39 @@
+        .header{
+            text-align: center;
+            display: grid;
+            padding: 20px;
+            row-gap: 20px;
+            border-radius: 20px;
+            background-color: rgb(242, 240, 244);
+            border: 2px solid rgb(8, 232, 8);
+        }
+        .EMAIL,.NAME,.next0{
+            border-radius: 20px;
+            min-height: 20px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid green;
+            font-size: 30px;
+        }
+        .next,.next0{
+            cursor: pointer;
+            background-color: rgba(92, 0, 128, 0.979);
+            color: white;
+            margin: 0 100px 0 100px;
+            min-width: 0;
+        }
+        .body{
+            display: grid;
+            display: none;
+        }
+        .h10{
+            display: none;
+            border: 2px solid blue;
+            min-height: 40px;
+            min-width: 40px;
+            border-radius: 20px;
+            background-color: rgb(5, 233, 5);
+            color: white;
+            padding: 20px;
+           
+        }
