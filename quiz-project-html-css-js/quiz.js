@@ -59,7 +59,7 @@ return
 }
 
 const fetching = async () => {
-    const res = await fetch("https://formspree.io/f/xzdqreyg", {
+    const res = await fetch("your formspree key", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
