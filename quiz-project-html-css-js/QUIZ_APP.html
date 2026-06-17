@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    </head>
+<body style="background-color: rgb(0, 255, 179);">
+    <div class="qbody">
+        <div class="header" >
+<h1>online quize</h1>
+<input type="text" class="NAME" placeholder="full name" required>
+<input type="email" class="EMAIL" placeholder="your email" required>
+ <button class="next0" onclick="hideheader()">next</button>
+        </div>
+<div class="body" >
+<p class="question"></p>
+     <label>
+            <input id="option1" type="radio" name="option" value="10"><span id="spanop1"> </span>
+        </label>
+
+        <label>
+            <input id="option2" type="radio" name="option" value="5"><span id="spanop2"> </span>
+        </label>
+
+        <label>
+            <input id="option3" type="radio" name="option" value="0.5"><span id="spanop3"> </span>
+        </label>
+
+        <label>
+            <input id="option4" type="radio" name="option" value="18"><span id="spanop4"> </span>
+        </label>
+        <button class="next" onclick="getquestion()">next</button>
+        </div>
+    </div>
+    <h1 class="h10"></h1>
+    <script src="quiz.js">
+</script>
+
+</body>
+</html>
