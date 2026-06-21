@@ -65,10 +65,7 @@ const stuDep = document.querySelector(".stuDep");
 const stuYear = document.querySelector(".stuYear");
 const sgpa = document.querySelector(".sgpa");
 
-// profile.addEventListener("click", () => {
-//   tablewraper.style.display ="none";
-//   profilebody.style.display ="flex";
-// });
+
 loginbtn1.addEventListener("click", () => {
   stu_cont2.style.display = "none";
   login_card.style.display = "flex";
@@ -125,8 +122,7 @@ toSeeResult.addEventListener("click", async () => {
   stuId.innerHTML = `Students id :${id}`;
   stuDep.innerHTML = `Department :${Department}`;
   stuYear.innerHTML = `Year :${year}`;
-  //  l= {"TBA":["Dr. Alemu","Jhon T.(phd)","Mr Bahar H.","Mrs Alemitu T.","Dr Aster"],"Name":"Abel","password":2134,"id":"ugpr3310/17",
-  //  "Math":[23,16,42],"English":[23,16,42],"physics":[23,16,42],"chemistry":[23,16,42],"biology":[23,16,42]}
+
   const {
     TBA: [tech1, tech2, tech3, tech4, tech5],
     Math: [Mmid, Massg, Mfin, mc],
