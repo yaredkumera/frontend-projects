@@ -1,33 +1,57 @@
-[   { "Name":"Mohamed Kedir",
-    "id":"UGPR3318/17",
-    "year":2,
-    "password":1234,
-    "Department":"Computer Science"
-},
-{
-    "Name":"Haftu Areya",
-    "id":"UGPR3314/17",
-    "year":3,
-    "password":4321
-     ,"Department":"Public Admnistration(PADM)"
-},
-{
-    "Name":"Firaol Demelash",
-    "id":"UGPR3312/17",
-    "year":4,
-    "password":1234
-     ,"Department":"Law"
-},
-{
-    "Name":"Abel Melaku",
-    "id":"UGPR3310/17",
-    "year":2,
-    "password":2134
-     ,"Department":"Medicine"
-},{
-    "Name":"Kebede Gemechu",
-    "id":"UGPR3319/17",
-    "year":4,
-    "password":4312
-     ,"Department":"Information Science"
-}]
+[
+  {
+    "Name": "Mohamed Kedir",
+    "id": "UGPR3318/17",
+    "year": 2,
+    "password": 1234,
+    "Department": "Computer Science",
+    "Enterance_result": 400,
+    "sex": "male",
+    "m_name": "Abebech Mulatu",
+    "e_region": "oromiya"
+  },
+  {
+    "Name": "Haftu Areya",
+    "id": "UGPR3314/17",
+    "year": 3,
+    "password": 4321,
+    "Department": "Public Admnistration(PADM)",
+    "Enterance_result": 400,
+    "sex": "male",
+    "m_name": "Abebech Mulatu",
+    "e_region": "oromiya"
+  },
+  {
+    "Name": "Firaol Demelash",
+    "id": "UGPR3312/17",
+    "year": 4,
+    "password": 1234,
+    "Department": "Law",
+    "Enterance_result": 400,
+    "sex": "male",
+    "m_name": "Abebech Mulatu",
+    "e_region": "oromiya"
+  },
+  {
+    "Name": "Abel Melaku",
+    "id": "UGPR3310/17",
+    "year": 2,
+    "password": 2134,
+    "Department": "Medicine",
+    "Enterance_result": 400,
+    "sex": "male",
+    "m_name": "Abebech Mulatu",
+    "e_region": "oromiya"
+  },
+  {
+    "Name": "Kebede Gemechu",
+    "id": "UGPR3319/17",
+    "year": 4,
+    "password": 4312,
+    "Department": "Information Science",
+    "Enterance_result": 400,
+    "sex": "male",
+    "m_name": "Abebech Mulatu",
+    "e_region": "oromiya"
+  }
+]
