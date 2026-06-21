@@ -99,24 +99,32 @@ const studentPortaldatabase = async () => {
   }
 };
 
-status.addEventListener("click",async()=>{
+status.addEventListener("click", async () => {
   const stu_password = password.value;
-    rightSide.style.display = "flex";
+  rightSide.style.display = "flex";
   tablewraper.style.display = "none";
   profilebody.style.display = "none";
-  statusbody.style.display="flex"
-  const stat=await fetch("statusDatabase.json")
-  const finalresult=await stat.json()
-  console.log(finalresult)
-const filtered=finalresult.filter(fil=>fil.password===Number(stu_password))
- console.log(filtered)
-const {clearance,fee_status,standing,registration_status,disciplinary_flag}=filtered[0]
-reg.innerHTML=registration_status
-pay.innerHTML=fee_status
-std.innerHTML=standing
-clr.innerHTML=clearance
-flag.innerHTML=disciplinary_flag
-})
+  statusbody.style.display = "flex";
+  const stat = await fetch("statusDatabase.json");
+  const finalresult = await stat.json();
+  console.log(finalresult);
+  const filtered = finalresult.filter(
+    (fil) => fil.password === Number(stu_password),
+  );
+  console.log(filtered);
+  const {
+    clearance,
+    fee_status,
+    standing,
+    registration_status,
+    disciplinary_flag,
+  } = filtered[0];
+  reg.innerHTML = registration_status;
+  pay.innerHTML = fee_status;
+  std.innerHTML = standing;
+  clr.innerHTML = clearance;
+  flag.innerHTML = disciplinary_flag;
+});
 loginbtn2.addEventListener("click", studentPortaldatabase);
 
 toSeeResult.addEventListener("click", async () => {
@@ -131,7 +139,6 @@ toSeeResult.addEventListener("click", async () => {
   }
   const resultDatabase = await res1.json();
   const studentPortal = await res2.json();
-
 
   console.log(resultDatabase);
   console.log(studentPortal);
@@ -163,6 +170,7 @@ toSeeResult.addEventListener("click", async () => {
       return mid + ass + fin;
     }
   };
+
   const grade = (result) => {
     if (result === "pending") {
       return "pending";
@@ -181,6 +189,7 @@ toSeeResult.addEventListener("click", async () => {
       else if (GRADE <= 39) return "F";
     }
   };
+
   const returnpoint = (grade, Credit) => {
     if (grade === "A+" || grade === "A") return Credit * 4;
     else if (grade === "A-") return Credit * 3.75;
@@ -194,6 +203,7 @@ toSeeResult.addEventListener("click", async () => {
     else if (grade === "F") return Credit * 0;
     else if (grade === "pending") return "p";
   };
+
   const SGPAfuction = (
     mcrd,
     ecrd,
@@ -218,6 +228,7 @@ toSeeResult.addEventListener("click", async () => {
       return (M + E + B + P + C) / totcrd;
     }
   };
+
   const Mtot = total(Mmid, Massg, Mfin);
   const Etot = total(Emid, Eassg, Efin);
   const Ptot = total(Pmid, Passg, Pfin);
@@ -227,14 +238,12 @@ toSeeResult.addEventListener("click", async () => {
   const Mgrd = grade(Mtot);
   const Egrd = grade(Etot);
   const Pgrd = grade(Ptot);
-
   const Bgrd = grade(Btot);
-
   const Cgrd = grade(Ctot);
+
   const SGPA = SGPAfuction(mc, ec, bc, pc, cc, Mgrd, Egrd, Bgrd, Pgrd, Cgrd);
-  setTimeout(() => {
-    sgpa.innerHTML = "Semister GPA <br> " + SGPA;
-  }, 9000);
+  sgpa.innerHTML = "Semister GPA <br> " + SGPA;
+
   mathTBAName.innerHTML = tech1;
   engTBAName.innerHTML = tech2;
   cheTBAName.innerHTML = tech3;
@@ -245,9 +254,8 @@ toSeeResult.addEventListener("click", async () => {
   matOut30.innerHTML = Mmid;
   matOut50.innerHTML = Mfin;
   mcrt.innerHTML = mc;
-    m100.innerHTML = Mtot;
-    mgrd.innerHTML = Mgrd;
- 
+  m100.innerHTML = Mtot;
+  mgrd.innerHTML = Mgrd;
 
   engOut20.innerHTML = Eassg;
   engOut30.innerHTML = Emid;
@@ -255,12 +263,13 @@ toSeeResult.addEventListener("click", async () => {
   ecrt.innerHTML = ec;
   e100.innerHTML = Etot;
   egrd.innerHTML = Egrd;
-    bioOut20.innerHTML = Bassg;
-    bioOut30.innerHTML = Bmid;
-    bioOut50.innerHTML = Bfin;
-    bcrt.innerHTML = bc;
-    b100.innerHTML = Btot;
-    bgrd.innerHTML = Bgrd;
+
+  bioOut20.innerHTML = Bassg;
+  bioOut30.innerHTML = Bmid;
+  bioOut50.innerHTML = Bfin;
+  bcrt.innerHTML = bc;
+  b100.innerHTML = Btot;
+  bgrd.innerHTML = Bgrd;
 
   phyOut20.innerHTML = Passg;
   phyOut30.innerHTML = Pmid;
@@ -279,5 +288,5 @@ toSeeResult.addEventListener("click", async () => {
   rightSide.style.display = "flex";
   tablewraper.style.display = "flex";
   profilebody.style.display = "flex";
-   statusbody.style.display="none"
+  statusbody.style.display = "none";
 });
