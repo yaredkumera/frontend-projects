@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.stu_cont1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+
+  min-width: 100vw;
+  width: auto;
+
+  min-height: 100vh;
+  height: auto;
+  padding: 30px;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+}
+.stu_cont2 {
+  display: flex;
+
+  border-radius: 30px;
+  min-width: 400px;
+  width: auto;
+  min-height: 100px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background-color: #dddde5;
+}
+.loginbtn1,
+.register {
+  flex: 1;
+  color: rgb(239, 13, 190);
+  font-size: 25px;
+  border-radius: 40px;
+  padding: 10px;
+  border: none;
+  color: white;
+  background: linear-gradient(
+    130deg,
+    rgb(227, 190, 5),
+    rgb(3, 3, 65),
+    rgb(230, 0, 255)
+  );
+}
+.login_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #b9b9d8;
+  padding: 20px;
+  min-width: 90%;
+  max-width: 100%;
+  min-height: 10px;
+  height: auto;
+  border-radius: 30px;
+  gap: 30px;
+  display: none;
+}
+
+.username,
+.password,
+.loginbtn2 {
+  border-radius: 40px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  min-width: 0;
+  border: none;
+}
+.logandback {
+  display: flex;
+  padding: 10px;
+  width: 50%;
+  gap: 15px;
+}
+.backtoinitial,
+.loginbtn2 {
+  flex: 1;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  background: linear-gradient(130deg, green, blue, yellow);
+}
+
+.username,
+.password {
+  width: 75%;
+}
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid rgb(84, 82, 82);
+  padding: 20px;
+  min-width: 80%;
+  max-width: 100%;
+  min-height: 10px;
+  height: auto;
+  border-radius: 40px;
+  gap: 30px;
+  display: none;
+}
+.fullname,
+.idtoreg,
+.submmit_reg {
+  border-radius: 40px;
+  padding: 10px;
+  font-size: 20px;
+  min-width: 0;
+  text-align: center;
+  border: none;
+}
+.submmit_reg {
+  width: 30%;
+  color: white;
+  background-color: blueviolet;
+}
+.fullname,
+.idtoreg {
+  width: 75%;
+}
+.dash_board {
+  padding: 10px;
+  display: flex;
+  min-width: 100vw;
+  width: auto;
+  min-height: 100vh;
+  height: auto;
+  flex-direction: column;
+  position: absolute;
+  background-color: rgb(147, 91, 196);
+  inset: 0;
+  row-gap: 20px;
+  display: none;
+}
+.header,
+.body_ofdash_board {
+  border: none;
+  text-align: center;
+  padding: 10px;
+}
+.header {
+  background: linear-gradient(90deg, #147bba, #b1e604);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px 16px 0 0;
+  flex: 0.2;
+}
+.header h1 {
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.body_ofdash_board {
+  display: flex;
+
+  flex-direction: row;
+  flex: 1;
+  column-gap: 30px;
+  border-radius: 0 0 16px 16px;
+}
+.rightSide,
+.leftSide {
+  border: 1px solid #ccc;
+}
+
+.leftSide {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  row-gap: 10px;
+  max-width: 400px;
+  background: #1a1a2e;
+}
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  background: linear-gradient(
+    60deg,
+    blue,
+    yellow,
+    #7af408,
+    rgb(154, 9, 237),
+    #bafb06
+  );
+  border-radius: 16px;
+  padding: 20px;
+  color: rgb(46, 2, 243);
+  row-gap: 30px;
+  box-shadow: 0 8px 10px rgba(7, 152, 242, 0.947);
+}
+.toSeeResult,
+.profile,
+.exam-portal,
+.status,
+.schedule {
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  background: transparent;
+  font-weight: bold;
+  text-align: left;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.toSeeResult:hover,
+.profile:hover,
+.exam-portal:hover,
+.status:hover,
+.schedule:hover {
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+.toSeeResult:active,
+.profile:active,
+.exam-portal:active,
+.status:active,
+.schedule:active {
+  background-color: rgb(6, 231, 59);
+}
+.table-wraper {
+  width: 100%;
+  display: none;
+}
+table {
+  width: 100%;
+  font-size: 25px;
+  border-collapse: collapse;
+  background-color: #b9b9d8;
+  border: 1;
+}
+th {
+  background-color: #3fe303;
+}
+th,
+td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.profilebody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  width: auto;
+  height: 100%;
+  height: auto;
+  font-size: 30px;
+  text-align: left;
+  padding: 10px;
+  line-height: 42px;
+  font-weight: bold;
+  border-radius: 10px;
+
+  margin: 0;
+}
+.sgpa {
+  text-align: center;
+  font-size: 35px;
+  background: #7af408;
+}
