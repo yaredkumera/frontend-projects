@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <style>
+ 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+ 
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+ 
+    /* the white card */
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+ 
+    /* top header */
+    .card-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+ 
+    .card-header h1 {
+      font-size: 26px;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+ 
+    .card-header p {
+      font-size: 14px;
+      color: #888;
+    }
+ 
+    /* each field group */
+    .field {
+      margin-bottom: 20px;
+    }
+ 
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 6px;
+    }
+ 
+    /* required star */
+    .field label span {
+      color: red;
+      margin-left: 3px;
+    }
+ 
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fafafa;
+    }
+ 
+    /* highlight on focus */
+    .field input:focus,
+    .field select:focus {
+      border-color: #4361ee;
+      background: white;
+    }
+ 
+    /* two columns side by side */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+ 
+    /* submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #4361ee;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+ 
+    .submit-btn:hover {
+      background: #3451d1;
+    }
+ 
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+ 
+    /* success message — hidden by default */
+    #success-msg {
+      display: none;
+      text-align: center;
+      padding: 30px;
+    }
+ 
+    #success-msg h2 {
+      color: #2e7d32;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+ 
+    #success-msg p {
+      color: #666;
+      font-size: 14px;
+    }
+ 
+    .checkmark {
+      font-size: 60px;
+      margin-bottom: 16px;
+    }
+ 
+  </style>
+</head>
+<body>
+ 
+  <div class="card">
+ 
+    <!-- success message shown after submit -->
+    <div id="success-msg">
+      <div class="checkmark">✅</div>
+      <h2>Registered Successfully!</h2>
+      <p>The student data has been sent.<br>Check your email for the submission.</p>
+    </div>
+ 
+    <!-- the form -->
+    <div id="form-container">
+ 
+      <div class="card-header">
+        <h1>Student Registration</h1>
+        <p>Fill in all fields and click Submit</p>
+      </div>
+ 
+      <!--
+        action  = your Formspree endpoint — this is where data goes
+        method  = POST means we are SENDING data
+      -->
+      <form id="regForm"
+            action="https://formspree.io/f/xzdqreyg"
+            method="POST">
+ 
+        <!-- full name -->
+        <div class="field">
+          <label>Full Name <span>*</span></label>
+          <input type="text"
+                 name="fullName"
+                 placeholder="e.g. Kumera Tadesse"
+                 required>
+        </div>
+ 
+        <!-- student id -->
+        <div class="field">
+          <label>Student ID <span>*</span></label>
+          <input type="text"
+                 name="studentId"
+                 placeholder="e.g. UGR/12345/15"
+                 required>
+        </div>
+ 
+        <!-- two columns: age + gender -->
+        <div class="two-col">
+          <div class="field">
+            <label>Age <span>*</span></label>
+            <input type="number"
+                   name="age"
+                   placeholder="e.g. 20"
+                   min="15"
+                   max="60"
+                   required>
+          </div>
+          <div class="field">
+            <label>Gender <span>*</span></label>
+            <select name="gender" required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+ 
+        <!-- department -->
+        <div class="field">
+          <label>Department <span>*</span></label>
+          <select name="department" required>
+            <option value="">Select Department</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+ 
+        <!-- year -->
+        <div class="field">
+          <label>Year <span>*</span></label>
+          <select name="year" required>
+            <option value="">Select Year</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+            <option value="5th Year">5th Year</option>
+          </select>
+        </div>
+ 
+        <!-- phone -->
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel"
+                 name="phone"
+                 placeholder="e.g. 0912345678">
+        </div>
+ 
+        <!-- email -->
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email"
+                 name="email"
+                 placeholder="e.g. student@gmail.com">
+        </div>
+ 
+        <!-- submit -->
+        <button type="submit" class="submit-btn">
+          Submit Registration
+        </button>
+ 
+      </form>
+ 
+    </div>
+  </div>
+ 
+ 
+  <script>
+ 
+    let form = document.querySelector("#regForm")
+    let formContainer = document.querySelector("#form-container")
+    let successMsg = document.querySelector("#success-msg")
+ 
+    // intercept form submit — use fetch() to send data
+    // this prevents page redirect after submission
+    form.addEventListener("submit", function(e) {
+ 
+      e.preventDefault() // stop normal form redirect
+ 
+      let data = new FormData(form) // collect all input values
+ 
+      // send data to Formspree using fetch
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {
+          "Accept": "application/json"
+        }
+      })
+      .then(function(response) {
+ 
+        if(response.ok){
+          // hide form, show success message
+          formContainer.style.display = "none"
+          successMsg.style.display    = "block"
+        } else {
+          alert("Something went wrong. Please try again.")
+        }
+ 
+      })
+      .catch(function(error) {
+        alert("Network error. Please check your connection.")
+      })
+ 
+    })
+ 
+  </script>
+ 
+</body>
+</html>

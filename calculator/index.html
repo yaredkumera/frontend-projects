@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <style>
+         
+            .divall{
+width: 300px;
+            background-color: #9a9c88;
+            box-shadow:3px 3px rgb(164, 205, 0);
+            border-style: dashed;
+            border: none;
+            padding: 25px;
+            border-radius: 5px;
+            }
+            .divall:hover{
+                background-color: aqua;
+            }
+            .display1{
+                
+                margin-top: -10px;
+            width: 96%;
+            height: 2.25rem;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 0 6px;
+            }
+            .display1:hover{
+                background-color: blueviolet;
+                color: white;
+            }
+           
+#buttons{
+margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4,2fr);
+   gap: 10px;
+padding: 10px;
+border-style: double;
+border-color: rgb(49, 49, 77);
+background-color: blue;
+border-radius: 6px;
+
+}
+    button{
+        height: 25px;
+        font-size: 20px;
+        text-align: center;
+      
+        border-radius: 6px;
+        border: none;
+      box-shadow: 3px 3px yellowgreen;
+/* transition: background-color 0.3s ease-out; */
+cursor: pointer;
+
+    } 
+    button:hover{
+        background-color: green;
+        color: white;
+    }    
+       button:active{
+        color: white;
+        background-color: rgb(28, 0, 128);
+    }    
+      .clear1{
+        grid-column: span 3
+      }
+        </style>
+        <title>CALCULATOR</title>
+    </head>
+    <body>
+<div class="divall">
+        <div class="display">
+            <input class="display1" id="display">
+        </div>
+    <div id="buttons">
+       <!-- <div class="d1"> -->
+            <button>7</button>
+            <button >8</button>
+            <button >9</button>
+            <button >⌫</button>
+           
+        <!-- </div>
+        <div> -->
+            <button >4</button>
+            <button >5</button>
+            <button >6</button>
+             <button >/</button>
+            
+        <!-- </div>
+        <div> -->
+            <button >1</button>
+            <button >2</button>
+            <button >3</button>
+<button >*</button>
+            <button >0</button>
+            <button >.</button>
+        <!-- </div>
+        <div> -->
+            <button >-</button>
+            <button >+</button>
+            <button >=</button>
+            <button class="clear1">C</button>
+        <!-- </div> -->
+    </div>
+</div>
+<script>
+    
+                let buttons=document.querySelector("#buttons")
+    let inputd=document.querySelector("#display")
+     
+
+ 
+ 
+buttons.addEventListener("click",function(e){
+    if(e.target.tagName!=="BUTTON"){
+        return
+    }
+    else if(e.target.textContent==="="){
+        inputd.value=eval(inputd.value)
+        
+    }
+     else if(e.target.textContent==="C"){
+        inputd.value=""
+     }else if(e.target.textContent==="⌫"){
+        inputd.value=inputd.value.slice(0,-1)
+     }else{
+        inputd.value+=e.target.textContent;
+     }
+})
+ 
+</script>
+     
+    </body>
+</html>
