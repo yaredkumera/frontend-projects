@@ -12,6 +12,7 @@
 
       <div class="dash_board">
         <div class="header">
+          <!-- <button class="back_dash">Back</button> -->
           <h1>HARAMAYA UNIVERSITY PORTAL SYSTEM</h1>
         </div>
         <!-- body_ofdash_board card ---------------------------------------------------------------------------->
@@ -27,11 +28,35 @@
           <!-- rightSide_ofdash_board card ---------------------------------------------------------------------------->
 
           <div class="rightSide">
+            <div class="statusbody">
+              <table>
+                <tr>
+                  <th>Registration-Status</th>
+                  <td class="reg">-</td>
+                </tr>
+                <tr>
+                  <th>disciplinary-flag</th>
+                  <td class="flag">-</td>
+                </tr>
+                <tr>
+                  <th>payment</th>
+                  <td class="pay">-</td>
+                </tr>
+                <tr>
+                  <th>Clearance</th>
+                  <td class="clr">-</td>
+                </tr>
+                <tr>
+                  <th>Standing</th>
+                  <td class="std">-</td>
+                </tr>
+              </table>
+            </div>
             <div class="profilebody">
-              <p class="stuName">uuuuuuuuuuuuuuu</p>
-              <p class="stuId">uuuuuuuuuuuuuuuuuuu</p>
-              <p class="stuDep">uuuuuuuuuuuuuuuuuu</p>
-              <p class="stuYear">uuuuuuuuuuuuuuuuuu</p>
+              <p class="stuName"></p>
+              <p class="stuId"></p>
+              <p class="stuDep"></p>
+              <p class="stuYear"></p>
             </div>
 
             <!-- table-wraper_ofdash_board card ---------------------------------------------------------------------------->
@@ -98,7 +123,7 @@
                   <td class="c100">-</td>
                   <td class="cgrd">-</td>
                 </tr>
-                <tr >
+                <tr>
                   <td colspan="8" class="sgpa">-</td>
                 </tr>
               </table>
@@ -108,16 +133,6 @@
       </div>
       <!-- Registration card ---------------------------------------------------------------------------->
 
-      <div class="registration">
-        <input type="text" class="fullname" required placeholder="fullname" />
-        <input
-          type="text"
-          class="idtoreg"
-          placeholder="your student_id"
-          required
-        />
-        <button class="submmit_reg">submit</button>
-      </div>
       <!-- login card ---------------------------------------------------------------------------->
       <div class="login_card">
         <input type="text" class="username" required placeholder="username" />
@@ -136,8 +151,6 @@
 
       <div class="stu_cont2">
         <button class="loginbtn1">Login</button>
-
-        <button class="register">Register</button>
       </div>
     </div>
     <script src="studentPortal.js"></script>

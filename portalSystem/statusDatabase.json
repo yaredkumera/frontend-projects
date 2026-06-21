@@ -1,0 +1,43 @@
+[
+  {
+    "password": 2134,
+    "clearance": "cleared",
+    "fee_status": "paid",
+    "standing": "good",
+    "registration_status": "registered",
+    "disciplinary_flag": "1 ,becuse of cheating on exam"
+  },
+  {
+    "password": 4321,
+    "clearance": "pending",
+    "fee_status": "unpaid",
+    
+    "standing": "very good",
+    "registration_status": "registered",
+    "disciplinary_flag": 0
+  },
+  {
+    "password": 1243,
+    "clearance": "cleared",
+    "fee_status": "paid",
+    "standing": "good",
+    "registration_status": "registered",
+    "disciplinary_flag": 0
+  },
+  {
+    "password": 1234,
+    "clearance": "cleared",
+    "fee_status": "paid",
+    "standing": "dean's list",
+    "registration_status": "registered",
+    "disciplinary_flag": "1, b/c of smoke in campus"
+  },
+  {
+    "password": 4312,
+    "clearance": "pending",
+    "fee_status": "partial",
+    "standing": "good",
+    "registration_status": "registered",
+    "disciplinary_flag": 0
+  }
+]

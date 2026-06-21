@@ -64,8 +64,13 @@ const stuId = document.querySelector(".stuId");
 const stuDep = document.querySelector(".stuDep");
 const stuYear = document.querySelector(".stuYear");
 const sgpa = document.querySelector(".sgpa");
-
-
+const status = document.querySelector(".status");
+const statusbody = document.querySelector(".statusbody");
+const reg = document.querySelector(".reg");
+const pay = document.querySelector(".pay");
+const clr = document.querySelector(".clr");
+const std = document.querySelector(".std");
+const flag = document.querySelector(".flag");
 loginbtn1.addEventListener("click", () => {
   stu_cont2.style.display = "none";
   login_card.style.display = "flex";
@@ -74,8 +79,12 @@ backtoinitial.addEventListener("click", () => {
   login_card.style.display = "none";
   stu_cont2.style.display = "flex";
 });
-loginbtn2.addEventListener("click", async () => {
+const studentPortaldatabase = async () => {
   const stu_password = password.value;
+  if (stu_password === "") {
+    alert("please fill the password");
+    return;
+  }
   const res = await fetch("studentPortal.json");
   const data = await res.json();
 
@@ -88,7 +97,27 @@ loginbtn2.addEventListener("click", async () => {
     alert("please make sure you are first registered");
     return;
   }
-});
+};
+
+status.addEventListener("click",async()=>{
+  const stu_password = password.value;
+    rightSide.style.display = "flex";
+  tablewraper.style.display = "none";
+  profilebody.style.display = "none";
+  statusbody.style.display="flex"
+  const stat=await fetch("statusDatabase.json")
+  const finalresult=await stat.json()
+  console.log(finalresult)
+const filtered=finalresult.filter(fil=>fil.password===Number(stu_password))
+ console.log(filtered)
+const {clearance,fee_status,standing,registration_status,disciplinary_flag}=filtered[0]
+reg.innerHTML=registration_status
+pay.innerHTML=fee_status
+std.innerHTML=standing
+clr.innerHTML=clearance
+flag.innerHTML=disciplinary_flag
+})
+loginbtn2.addEventListener("click", studentPortaldatabase);
 
 toSeeResult.addEventListener("click", async () => {
   const stu_password = password.value;
@@ -96,18 +125,14 @@ toSeeResult.addEventListener("click", async () => {
     fetch("resultDatabase.json"),
     fetch("studentPortal.json"),
   ]);
-  if (!res1.ok || !res1.ok) {
-    alert(
-      "something went wrong" + res1.ok
-        ? "response stutus is:" + res2.status
-        : res2.ok
-          ? res1.status
-          : "but not with response status",
-    );
+  if (!res1.ok || !res2.ok) {
+    alert("something went wrong");
     return;
   }
   const resultDatabase = await res1.json();
   const studentPortal = await res2.json();
+
+
   console.log(resultDatabase);
   console.log(studentPortal);
   const newdata = resultDatabase.filter(
@@ -135,73 +160,81 @@ toSeeResult.addEventListener("click", async () => {
     if (mid === "-" || ass === "-" || fin === "-") {
       return "pending";
     } else {
-      return (mid+ass+fin);
+      return mid + ass + fin;
     }
   };
   const grade = (result) => {
-    if (result==="pending") {
+    if (result === "pending") {
       return "pending";
     } else {
-      const GRADE=Number(result)
-      if(GRADE>=90) return "A+"
-      else if(GRADE>=85) return "A"
-      else if(GRADE>=80) return "A-"
-      else if(GRADE>=75) return "B+"
-      else if(GRADE>=70) return "B"
-      else if(GRADE>=65) return "B-"
-      else if(GRADE>=60) return "C+"
-      else if(GRADE>=50) return "C"
-      else if(GRADE>=45) return "C-"
-      else if(GRADE>=40) return "D"
-      else if(GRADE<=39) return "F"
+      const GRADE = Number(result);
+      if (GRADE >= 90) return "A+";
+      else if (GRADE >= 85) return "A";
+      else if (GRADE >= 80) return "A-";
+      else if (GRADE >= 75) return "B+";
+      else if (GRADE >= 70) return "B";
+      else if (GRADE >= 65) return "B-";
+      else if (GRADE >= 60) return "C+";
+      else if (GRADE >= 50) return "C";
+      else if (GRADE >= 45) return "C-";
+      else if (GRADE >= 40) return "D";
+      else if (GRADE <= 39) return "F";
     }
   };
-  const returnpoint=(grade,Credit)=>{
-     if(grade==="A+"||grade==="A") return Credit*4
-     else if(grade==="A-") return Credit*3.75
-     else if(grade==="B+") return Credit*3.5
-     else if(grade==="B") return Credit*3.0
-     else if(grade==="B-") return Credit*2.75
-     else if(grade==="C+") return Credit*2.5
-     else if(grade==="C") return Credit*2.0
-     else if(grade==="C-") return Credit*1.5
-     else if(grade==="D") return Credit
-     else if(grade==="F") return Credit*0
-     else if(grade==="pending") return "p"
-     
-  }
-  const SGPAfuction=(mcrd,ecrd,bcrd,pcrd,ccrd,Mgrd,Egrd,Bgrd,Pgrd,Cgrd)=>{
-      const M=returnpoint(Mgrd,mcrd)
-      const E=returnpoint(Egrd,ecrd)
-      const B=returnpoint(Bgrd,bcrd)
-      const P=returnpoint(Pgrd,pcrd)
-      const C=returnpoint(Cgrd,ccrd)
-      const totcrd=(mcrd+ecrd+pcrd+ccrd+bcrd)
-      if(M==="p"||E==="p"||P==="p"||C==="p"||B==="p"){
-        return "pending"
-      }else{
-        return (M+E+B+P+C)/totcrd
-      }
-  }
+  const returnpoint = (grade, Credit) => {
+    if (grade === "A+" || grade === "A") return Credit * 4;
+    else if (grade === "A-") return Credit * 3.75;
+    else if (grade === "B+") return Credit * 3.5;
+    else if (grade === "B") return Credit * 3.0;
+    else if (grade === "B-") return Credit * 2.75;
+    else if (grade === "C+") return Credit * 2.5;
+    else if (grade === "C") return Credit * 2.0;
+    else if (grade === "C-") return Credit * 1.5;
+    else if (grade === "D") return Credit;
+    else if (grade === "F") return Credit * 0;
+    else if (grade === "pending") return "p";
+  };
+  const SGPAfuction = (
+    mcrd,
+    ecrd,
+    bcrd,
+    pcrd,
+    ccrd,
+    Mgrd,
+    Egrd,
+    Bgrd,
+    Pgrd,
+    Cgrd,
+  ) => {
+    const M = returnpoint(Mgrd, mcrd);
+    const E = returnpoint(Egrd, ecrd);
+    const B = returnpoint(Bgrd, bcrd);
+    const P = returnpoint(Pgrd, pcrd);
+    const C = returnpoint(Cgrd, ccrd);
+    const totcrd = mcrd + ecrd + pcrd + ccrd + bcrd;
+    if (M === "p" || E === "p" || P === "p" || C === "p" || B === "p") {
+      return "pending";
+    } else {
+      return (M + E + B + P + C) / totcrd;
+    }
+  };
   const Mtot = total(Mmid, Massg, Mfin);
   const Etot = total(Emid, Eassg, Efin);
   const Ptot = total(Pmid, Passg, Pfin);
   const Btot = total(Bmid, Bassg, Bfin);
   const Ctot = total(Cmid, Cassg, Cfin);
 
-    const Mgrd = grade(Mtot);
+  const Mgrd = grade(Mtot);
   const Egrd = grade(Etot);
   const Pgrd = grade(Ptot);
-  
+
   const Bgrd = grade(Btot);
 
-
   const Cgrd = grade(Ctot);
- const SGPA=SGPAfuction(mc,ec,bc,pc,cc,Mgrd,Egrd,Bgrd,Pgrd,Cgrd)
- setTimeout(()=>{
- sgpa.innerHTML="Semister GPA <br> "+SGPA
-
- },9000)
+  const SGPA = SGPAfuction(mc, ec, bc, pc, cc, Mgrd, Egrd, Bgrd, Pgrd, Cgrd);
+  setTimeout(() => {
+    sgpa.innerHTML = "Semister GPA <br> " + SGPA;
+  }, 9000);
   mathTBAName.innerHTML = tech1;
   engTBAName.innerHTML = tech2;
   cheTBAName.innerHTML = tech3;
@@ -212,48 +245,39 @@ toSeeResult.addEventListener("click", async () => {
   matOut30.innerHTML = Mmid;
   matOut50.innerHTML = Mfin;
   mcrt.innerHTML = mc;
-  setTimeout(()=>{m100.innerHTML = Mtot;
-mgrd.innerHTML=Mgrd},5000)
+    m100.innerHTML = Mtot;
+    mgrd.innerHTML = Mgrd;
+ 
 
   engOut20.innerHTML = Eassg;
   engOut30.innerHTML = Emid;
   engOut50.innerHTML = Efin;
   ecrt.innerHTML = ec;
   e100.innerHTML = Etot;
-egrd.innerHTML=Egrd
-setTimeout(()=>{
-  bioOut20.innerHTML = Bassg;
-  bioOut30.innerHTML = Bmid;
-  bioOut50.innerHTML = Bfin;
-  bcrt.innerHTML = bc;
-  b100.innerHTML = Btot;
-bgrd.innerHTML=Bgrd
-},8000)
-
+  egrd.innerHTML = Egrd;
+    bioOut20.innerHTML = Bassg;
+    bioOut30.innerHTML = Bmid;
+    bioOut50.innerHTML = Bfin;
+    bcrt.innerHTML = bc;
+    b100.innerHTML = Btot;
+    bgrd.innerHTML = Bgrd;
 
   phyOut20.innerHTML = Passg;
   phyOut30.innerHTML = Pmid;
   phyOut50.innerHTML = Pfin;
   pcrt.innerHTML = pc;
   p100.innerHTML = Ptot;
-pgrd.innerHTML=Pgrd
+  pgrd.innerHTML = Pgrd;
 
   cheOut20.innerHTML = Cassg;
   cheOut30.innerHTML = Cmid;
   cheOut50.innerHTML = Cfin;
   ccrt.innerHTML = cc;
   c100.innerHTML = Ctot;
-cgrd.innerHTML=Cgrd
+  cgrd.innerHTML = Cgrd;
 
   rightSide.style.display = "flex";
   tablewraper.style.display = "flex";
   profilebody.style.display = "flex";
-});
-register.addEventListener("click", () => {
-  stu_cont2.style.display = "none";
-  registration.style.display = "flex";
-});
-submmit_reg.addEventListener("click", () => {
-  registration.style.display = "none";
-  dash_board.style.display = "flex";
+   statusbody.style.display="none"
 });
